@@ -1,0 +1,31 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    container:
+      image: debian:unstable
+      options: --privileged
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: echo "deb http://deb.debian.org/debian unstable main" > /etc/apt/sources.list
+      - run: rm -f /etc/apt/sources.list.d/debian.sources
+
+      - run: apt update
+      - run: apt -y upgrade
+
+      - run: apt install -y pbuilder
+
+      - run: pbuilder create --distribution sid
+
+      - run: ./hyprwayland-scanner.sh
+
+      - run: ls -l /var/cache/pbuilder/result
