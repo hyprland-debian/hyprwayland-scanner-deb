@@ -16,15 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - run: echo "deb http://deb.debian.org/debian unstable main" > /etc/apt/sources.list
-      - run: rm -f /etc/apt/sources.list.d/debian.sources
-
-      - run: apt update
-      - run: apt -y upgrade
-
-      - run: apt install -y pbuilder
-
-      - run: pbuilder create --distribution sid
+      - run: ./setup-pbuilder.sh
 
       - run: ./hyprwayland-scanner.sh
 
