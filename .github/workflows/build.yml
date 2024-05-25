@@ -29,3 +29,14 @@ jobs:
       - run: ./hyprwayland-scanner.sh
 
       - run: ls -l /var/cache/pbuilder/result
+
+      - name: release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          artifactErrorsFailBuild: true
+          removeArtifacts: true
+          tag: latest
+          artifacts: /var/cache/pbuilder/result/*.deb
+          token: ${{ secrets.GITHUB_TOKEN }}
+
