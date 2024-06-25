@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VER=0.3.8
+VER=0.3.10
 
 wget https://github.com/hyprwm/hyprwayland-scanner/archive/refs/tags/v$VER.tar.gz -O hyprwayland-scanner-$VER.tar.gz
 tar -xzmf hyprwayland-scanner-$VER.tar.gz
