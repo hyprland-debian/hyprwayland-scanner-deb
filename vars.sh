@@ -1,2 +1,0 @@
-IMAGE_NAME=pbuilder-image
-CONTAINER_NAME=pbuilder-container

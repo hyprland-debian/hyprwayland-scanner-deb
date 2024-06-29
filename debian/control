@@ -1,0 +1,12 @@
+Source: hyprwayland-scanner
+Section: utils
+Priority: extra
+Maintainer: John Doe <john@doe.org>
+Standards-Version: VERSION_TEMPLATE
+
+Package: hyprwayland-scanner
+Section: utils
+Priority: extra
+Architecture: amd64
+Depends: ${shlibs:Depends}
+Description: A Hyprland implementation of wayland-scanner, in and for C++.
